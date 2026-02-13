@@ -49,7 +49,7 @@ RUN mkdir -p /app/backend/logs \
     && mkdir -p /app/models
 
 # Copy models if they exist (optional)
-COPY models ./models 2>/dev/null || echo "No models directory found, skipping..."
+COPY models/ ./models/
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
