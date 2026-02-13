@@ -1,0 +1,70 @@
+{
+  "report_id": "RPT-CONS-DAA395CC",
+  "consultation_id": "CONS-DAA395CC",
+  "generated_at": "2026-02-09T23:53:40.422804",
+  "locale": "en",
+  "patient_summary": {
+    "age": 30,
+    "gender": "Not specified",
+    "consultation_date": "",
+    "consultation_type": "Digital Ayurvedic Assessment",
+    "analyses_performed": []
+  },
+  "analysis_summary": {},
+  "diagnosis_summary": {
+    "primary_dosha": "vata",
+    "imbalance_level": "mild",
+    "constitution_type": "",
+    "current_state": "",
+    "dosha_percentages": {},
+    "explanation": "",
+    "confidence_score": 0.75
+  },
+  "recommendations": {
+    "dietary": {
+      "title": "Dietary Guidelines",
+      "recommendations": [
+        "Eat warm foods"
+      ],
+      "priority": "high"
+    },
+    "lifestyle": {
+      "title": "Lifestyle Modifications",
+      "recommendations": [
+        "Regular sleep"
+      ],
+      "priority": "high"
+    }
+  },
+  "health_score": {
+    "score": 56.2,
+    "category": "Fair",
+    "color": "yellow",
+    "factors": {
+      "dosha_balance": "mild",
+      "analysis_confidence": 0.75,
+      "symptoms_severity": "none"
+    }
+  },
+  "risk_assessment": {
+    "identified_risks": [],
+    "overall_risk_level": "low",
+    "prevention_focus": "Focus on balancing vata dosha"
+  },
+  "follow_up": {
+    "next_consultation": "In 4 weeks",
+    "description": "Monthly check-in recommended",
+    "monitoring_points": [
+      "Track symptom changes",
+      "Monitor dietary compliance",
+      "Assess lifestyle modifications",
+      "Evaluate herbal interventions"
+    ],
+    "red_flags": [
+      "Worsening of existing symptoms",
+      "New severe symptoms",
+      "No improvement after 4 weeks"
+    ]
+  },
+  "disclaimer": "report.disclaimer"
+}

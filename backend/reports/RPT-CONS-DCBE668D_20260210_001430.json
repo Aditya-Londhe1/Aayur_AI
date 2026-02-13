@@ -1,0 +1,106 @@
+{
+  "report_id": "RPT-CONS-DCBE668D",
+  "consultation_id": "CONS-DCBE668D",
+  "generated_at": "2026-02-10T00:14:30.384402",
+  "locale": "en",
+  "patient_summary": {
+    "age": 35,
+    "gender": "female",
+    "consultation_date": "2026-02-10T00:14:26.208104",
+    "consultation_type": "Digital Ayurvedic Assessment",
+    "analyses_performed": [
+      "symptoms"
+    ]
+  },
+  "analysis_summary": {
+    "symptoms": {
+      "dominant_dosha": "vata",
+      "confidence": 0.33,
+      "likely_conditions": [],
+      "overall_severity": "mild"
+    }
+  },
+  "diagnosis_summary": {
+    "primary_dosha": "vata",
+    "imbalance_level": "mild",
+    "constitution_type": "Tridoshic",
+    "current_state": "Vata imbalance",
+    "dosha_percentages": {
+      "vata": 0.33333333333333337,
+      "pitta": 0.33333333333333337,
+      "kapha": 0.33333333333333337
+    },
+    "explanation": "Your Vata dosha shows mild imbalance. Dosha distribution: Vata: 33.3%, Pitta: 33.3%, Kapha: 33.3%",
+    "confidence_score": 0.665
+  },
+  "recommendations": {
+    "dietary": {
+      "title": "Dietary Guidelines",
+      "recommendations": [
+        "Eat warm, cooked foods",
+        "Include healthy fats like ghee",
+        "Avoid cold, raw foods",
+        "Eat at regular times"
+      ],
+      "priority": "high"
+    },
+    "lifestyle": {
+      "title": "Lifestyle Modifications",
+      "recommendations": [
+        "Maintain regular sleep schedule",
+        "Practice gentle exercises",
+        "Keep warm",
+        "Establish routines",
+        "Balance work and personal life"
+      ],
+      "priority": "high"
+    },
+    "herbal": {
+      "title": "Herbal Support",
+      "recommendations": [
+        "Ashwagandha for stress",
+        "Brahmi for mental clarity",
+        "Triphala for digestion"
+      ],
+      "priority": "medium"
+    },
+    "precautions": {
+      "title": "Important Precautions",
+      "recommendations": [
+        "Mild imbalance detected. Follow the recommendations for optimal health."
+      ],
+      "priority": "critical"
+    }
+  },
+  "health_score": {
+    "score": 49.9,
+    "category": "Needs Attention",
+    "color": "orange",
+    "factors": {
+      "dosha_balance": "mild",
+      "analysis_confidence": 0.665,
+      "symptoms_severity": "mild"
+    }
+  },
+  "risk_assessment": {
+    "identified_risks": [],
+    "overall_risk_level": "low",
+    "prevention_focus": "Focus on balancing vata dosha"
+  },
+  "follow_up": {
+    "next_consultation": "In 4 weeks",
+    "description": "Monthly check-in recommended",
+    "monitoring_points": [
+      "Track symptom changes",
+      "Monitor dietary compliance",
+      "Assess lifestyle modifications",
+      "Evaluate herbal interventions"
+    ],
+    "red_flags": [
+      "Worsening of existing symptoms",
+      "New severe symptoms",
+      "No improvement after 4 weeks"
+    ]
+  },
+  "disclaimer": "report.disclaimer"
+}

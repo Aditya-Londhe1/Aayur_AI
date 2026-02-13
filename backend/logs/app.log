@@ -1,0 +1,152 @@
+2026-02-14 00:20:24,702 | INFO | app.main | main.py:33 | Starting Aayur AI backend...
+2026-02-14 00:20:25,160 | INFO | app.ai_models.loader | loader.py:16 | Starting AI model loading process...
+2026-02-14 00:20:25,162 | INFO | app.ai_models.loader | loader.py:19 | Loading Tongue Analysis model...
+2026-02-14 00:20:25,163 | INFO | app.ai_models.loader | loader.py:23 | ✓ Tongue Analysis model loaded successfully
+2026-02-14 00:20:25,168 | INFO | app.ai_models.loader | loader.py:28 | Loading Pulse Analysis model...
+2026-02-14 00:20:25,172 | WARNING | app.services.pulse_service | pulse_service.py:28 | Pulse model not found at D:\AayurAI_Complete\backend\models/pulse/final_model.pth. Using random weights for dev.
+2026-02-14 00:20:25,237 | INFO | app.ai_models.loader | loader.py:35 | ✓ Pulse Analysis model loaded successfully
+2026-02-14 00:20:25,326 | INFO | app.ai_models.loader | loader.py:42 | Loading Symptom Analysis model...
+2026-02-14 00:20:25,361 | WARNING | app.ai_models.symptom_analysis | symptom_analysis.py:81 | Transformers library not available. Using keyword-based analysis only.
+2026-02-14 00:20:25,375 | INFO | app.ai_models.loader | loader.py:49 | ✓ Symptom Analysis using keyword fallback (transformers unavailable)
+2026-02-14 00:20:25,377 | INFO | app.ai_models.loader | loader.py:54 | Loading Fusion Service...
+2026-02-14 00:20:25,384 | INFO | app.ai_models.loader | loader.py:58 | ✓ Fusion Service loaded successfully
+2026-02-14 00:20:25,394 | INFO | app.ai_models.loader | loader.py:62 | 🎉 AI model loading process completed!
+2026-02-14 00:20:25,438 | INFO | app.main | main.py:46 | Backend started successfully!
+2026-02-14 00:24:01,314 | INFO | app.core.middleware | middleware.py:18 | OPTIONS /api/v1/auth/me completed in 0.0037s status=200
+2026-02-14 00:24:01,316 | INFO | app.core.middleware | middleware.py:18 | OPTIONS /api/v1/auth/me completed in 0.0062s status=200
+2026-02-14 00:24:01,397 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/auth/me completed in 0.0673s status=401
+2026-02-14 00:24:01,409 | INFO | app.core.middleware | middleware.py:18 | OPTIONS /api/v1/auth/refresh completed in 0.0019s status=200
+2026-02-14 00:24:01,413 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/auth/me completed in 0.0083s status=401
+2026-02-14 00:24:01,596 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/auth/refresh completed in 0.1782s status=200
+2026-02-14 00:24:01,608 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/auth/refresh completed in 0.1833s status=200
+2026-02-14 00:24:01,666 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/auth/me completed in 0.0519s status=200
+2026-02-14 00:24:01,680 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/auth/me completed in 0.0073s status=200
+2026-02-14 00:27:50,075 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/auth/me completed in 0.0102s status=200
+2026-02-14 00:27:50,084 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/auth/me completed in 0.0051s status=200
+2026-02-14 00:27:52,278 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/health completed in 0.0006s status=404
+2026-02-14 00:27:54,502 | INFO | app.api.api_v1.endpoints.pulse | pulse.py:92 | Generated synthetic pulse: 75.0 BPM, 60s, 125Hz
+2026-02-14 00:27:54,520 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/pulse/generate-synthetic-pulse completed in 0.1292s status=200
+2026-02-14 00:27:56,701 | WARNING | app.services.pulse_service | pulse_service.py:28 | Pulse model not found at D:\AayurAI_Complete\backend\models/pulse/final_model.pth. Using random weights for dev.
+2026-02-14 00:27:57,526 | INFO | app.services.pulse_service | pulse_service.py:143 | Pulse Analysis Complete - ML: Kapha, Ayurvedic: Pitta
+2026-02-14 00:27:57,545 | WARNING | app.ai_models.symptom_analysis | symptom_analysis.py:81 | Transformers library not available. Using keyword-based analysis only.
+2026-02-14 00:27:57,556 | ERROR | app.ai_models.symptom_analysis | symptom_analysis.py:137 | Symptom analysis error: 'str' object has no attribute 'get'
+2026-02-14 00:27:57,575 | INFO | app.services.ai_service | ai_service.py:195 | Integrating analyses: ['pulse', 'symptoms']
+2026-02-14 00:27:57,584 | INFO | app.services.ai_service | ai_service.py:198 | Pulse probabilities: {'Vata': 2.9910868761362508e-05, 'Pitta': 2.431108043765562e-07, 'Kapha': 0.9998770952224731, 'Balanced': 9.274809417547658e-05}
+2026-02-14 00:27:57,599 | INFO | app.services.ai_service | ai_service.py:202 | Symptom dosha_contributions: {'vata': 0.0, 'pitta': 0.0, 'kapha': 0.0}
+2026-02-14 00:27:57,632 | INFO | app.services.ai_service | ai_service.py:211 | Fusion result: {'dominant_dosha': 'Kapha', 'confidence': 0.9999698432233692, 'fused_scores': {'Vata': 2.9913643275646248e-05, 'Pitta': 2.4313335518926096e-07, 'Kapha': 0.9999698432233692}, 'sources': {'pulse': {'Vata': 2.9910868761362508e-05, 'Pitta': 2.431108043765562e-07, 'Kapha': 0.9998770952224731}, 'tongue': {'Vata': 0.0, 'Pitta': 0.0, 'Kapha': 0.0}, 'symptoms': {'Vata': 0.0, 'Pitta': 0.0, 'Kapha': 0.0}}, 'weights_used': {'tongue': 0.5, 'pulse': 0.3, 'symptoms': 0.2}}
+2026-02-14 00:27:57,650 | ERROR | app.services.ai_service | ai_service.py:188 | Complete analysis error: 'str' object has no attribute 'get'
+2026-02-14 00:27:57,654 | ERROR | app.api.api_v1.endpoints.consultations | consultations.py:110 | Failed to complete consultation: 'str' object has no attribute 'get'
+2026-02-14 00:27:57,664 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/consultations/complete completed in 1.0712s status=500
+2026-02-14 00:27:59,753 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/voice/supported-languages completed in 0.0038s status=200
+2026-02-14 00:28:01,829 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/tongue/analyze completed in 0.0204s status=422
+2026-02-14 00:28:03,873 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/voice/extract-symptoms-from-text completed in 0.0057s status=200
+2026-02-14 00:28:05,927 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/health completed in 0.0006s status=404
+2026-02-14 00:28:07,998 | INFO | app.core.middleware | middleware.py:18 | OPTIONS /api/v1/health completed in 0.0008s status=404
+2026-02-14 00:28:19,866 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/health completed in 0.0005s status=404
+2026-02-14 00:28:33,801 | INFO | app.core.middleware | middleware.py:18 | GET /health completed in 0.0111s status=200
+2026-02-14 00:29:29,369 | INFO | app.core.middleware | middleware.py:18 | GET /health completed in 0.0011s status=200
+2026-02-14 00:29:31,537 | INFO | app.api.api_v1.endpoints.pulse | pulse.py:92 | Generated synthetic pulse: 75.0 BPM, 60s, 125Hz
+2026-02-14 00:29:31,550 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/pulse/generate-synthetic-pulse completed in 0.1069s status=200
+2026-02-14 00:29:33,775 | INFO | app.services.pulse_service | pulse_service.py:143 | Pulse Analysis Complete - ML: Kapha, Ayurvedic: Pitta
+2026-02-14 00:29:33,776 | ERROR | app.ai_models.symptom_analysis | symptom_analysis.py:137 | Symptom analysis error: 'str' object has no attribute 'get'
+2026-02-14 00:29:33,777 | INFO | app.services.ai_service | ai_service.py:195 | Integrating analyses: ['pulse', 'symptoms']
+2026-02-14 00:29:33,777 | INFO | app.services.ai_service | ai_service.py:198 | Pulse probabilities: {'Vata': 3.0358778531081043e-05, 'Pitta': 2.4655233232806495e-07, 'Kapha': 0.9998769760131836, 'Balanced': 9.239565406460315e-05}
+2026-02-14 00:29:33,777 | INFO | app.services.ai_service | ai_service.py:202 | Symptom dosha_contributions: {'vata': 0.0, 'pitta': 0.0, 'kapha': 0.0}
+2026-02-14 00:29:33,778 | INFO | app.services.ai_service | ai_service.py:211 | Fusion result: {'dominant_dosha': 'Kapha', 'confidence': 0.9999693918403717, 'fused_scores': {'Vata': 3.036158450791387e-05, 'Pitta': 2.465751204692902e-07, 'Kapha': 0.9999693918403717}, 'sources': {'pulse': {'Vata': 3.0358778531081043e-05, 'Pitta': 2.4655233232806495e-07, 'Kapha': 0.9998769760131836}, 'tongue': {'Vata': 0.0, 'Pitta': 0.0, 'Kapha': 0.0}, 'symptoms': {'Vata': 0.0, 'Pitta': 0.0, 'Kapha': 0.0}}, 'weights_used': {'tongue': 0.5, 'pulse': 0.3, 'symptoms': 0.2}}
+2026-02-14 00:29:33,778 | ERROR | app.services.ai_service | ai_service.py:188 | Complete analysis error: 'str' object has no attribute 'get'
+2026-02-14 00:29:33,778 | ERROR | app.api.api_v1.endpoints.consultations | consultations.py:110 | Failed to complete consultation: 'str' object has no attribute 'get'
+2026-02-14 00:29:33,779 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/consultations/complete completed in 0.1605s status=500
+2026-02-14 00:29:35,820 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/voice/supported-languages completed in 0.0005s status=200
+2026-02-14 00:29:37,881 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/tongue/analyze completed in 0.0012s status=422
+2026-02-14 00:29:39,917 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/voice/extract-symptoms-from-text completed in 0.0026s status=200
+2026-02-14 00:29:41,996 | INFO | app.core.middleware | middleware.py:18 | GET /health completed in 0.0014s status=200
+2026-02-14 00:29:44,047 | INFO | app.core.middleware | middleware.py:18 | OPTIONS /health completed in 0.0004s status=405
+2026-02-14 00:30:01,295 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/voice/supported-languages completed in 0.0004s status=200
+2026-02-14 00:30:22,414 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/voice/extract-symptoms-from-text completed in 0.0016s status=200
+2026-02-14 00:30:53,349 | INFO | app.core.middleware | middleware.py:18 | GET /health completed in 0.0014s status=200
+2026-02-14 00:30:55,781 | INFO | app.api.api_v1.endpoints.pulse | pulse.py:92 | Generated synthetic pulse: 75.0 BPM, 60s, 125Hz
+2026-02-14 00:30:55,814 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/pulse/generate-synthetic-pulse completed in 0.3792s status=200
+2026-02-14 00:30:58,200 | INFO | app.services.pulse_service | pulse_service.py:143 | Pulse Analysis Complete - ML: Kapha, Ayurvedic: Pitta
+2026-02-14 00:30:58,200 | ERROR | app.ai_models.symptom_analysis | symptom_analysis.py:137 | Symptom analysis error: 'str' object has no attribute 'get'
+2026-02-14 00:30:58,201 | INFO | app.services.ai_service | ai_service.py:195 | Integrating analyses: ['pulse', 'symptoms']
+2026-02-14 00:30:58,201 | INFO | app.services.ai_service | ai_service.py:198 | Pulse probabilities: {'Vata': 3.0949318897910416e-05, 'Pitta': 2.4358629957532685e-07, 'Kapha': 0.9998742341995239, 'Balanced': 9.457684063818306e-05}
+2026-02-14 00:30:58,202 | INFO | app.services.ai_service | ai_service.py:202 | Symptom dosha_contributions: {'vata': 0.0, 'pitta': 0.0, 'kapha': 0.0}
+2026-02-14 00:30:58,202 | INFO | app.services.ai_service | ai_service.py:211 | Fusion result: {'dominant_dosha': 'Kapha', 'confidence': 0.99996880414452, 'fused_scores': {'Vata': 3.0952246141443386e-05, 'Pitta': 2.436093384157777e-07, 'Kapha': 0.99996880414452}, 'sources': {'pulse': {'Vata': 3.0949318897910416e-05, 'Pitta': 2.4358629957532685e-07, 'Kapha': 0.9998742341995239}, 'tongue': {'Vata': 0.0, 'Pitta': 0.0, 'Kapha': 0.0}, 'symptoms': {'Vata': 0.0, 'Pitta': 0.0, 'Kapha': 0.0}}, 'weights_used': {'tongue': 0.5, 'pulse': 0.3, 'symptoms': 0.2}}
+2026-02-14 00:30:58,203 | ERROR | app.services.ai_service | ai_service.py:188 | Complete analysis error: 'str' object has no attribute 'get'
+2026-02-14 00:30:58,203 | ERROR | app.api.api_v1.endpoints.consultations | consultations.py:110 | Failed to complete consultation: 'str' object has no attribute 'get'
+2026-02-14 00:30:58,204 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/consultations/complete completed in 0.2405s status=500
+2026-02-14 00:31:00,271 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/voice/supported-languages completed in 0.0005s status=200
+2026-02-14 00:31:02,312 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/tongue/analyze completed in 0.0054s status=422
+2026-02-14 00:31:04,380 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/voice/extract-symptoms-from-text completed in 0.0025s status=200
+2026-02-14 00:31:06,424 | INFO | app.core.middleware | middleware.py:18 | GET /health completed in 0.0028s status=200
+2026-02-14 00:31:08,472 | INFO | app.core.middleware | middleware.py:18 | OPTIONS /health completed in 0.0008s status=405
+2026-02-14 00:31:10,763 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/auth/me completed in 0.0124s status=200
+2026-02-14 00:31:10,773 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/auth/me completed in 0.0072s status=200
+2026-02-14 00:31:20,603 | INFO | app.core.middleware | middleware.py:18 | OPTIONS /api/v1/auth/logout completed in 0.0006s status=200
+2026-02-14 00:31:20,620 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/auth/logout completed in 0.0104s status=200
+2026-02-14 00:33:12,016 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/consultations/complete completed in 0.0076s status=400
+2026-02-14 00:34:13,980 | INFO | app.main | main.py:51 | Shutting down Aayur AI backend...
+2026-02-14 00:35:22,439 | INFO | app.main | main.py:33 | Starting Aayur AI backend...
+2026-02-14 00:35:23,440 | INFO | app.ai_models.loader | loader.py:16 | Starting AI model loading process...
+2026-02-14 00:35:23,442 | INFO | app.ai_models.loader | loader.py:19 | Loading Tongue Analysis model...
+2026-02-14 00:35:23,446 | INFO | app.ai_models.loader | loader.py:23 | ✓ Tongue Analysis model loaded successfully
+2026-02-14 00:35:23,447 | INFO | app.ai_models.loader | loader.py:28 | Loading Pulse Analysis model...
+2026-02-14 00:35:23,447 | WARNING | app.services.pulse_service | pulse_service.py:28 | Pulse model not found at D:\AayurAI_Complete\backend\models/pulse/final_model.pth. Using random weights for dev.
+2026-02-14 00:35:23,519 | INFO | app.ai_models.loader | loader.py:35 | ✓ Pulse Analysis model loaded successfully
+2026-02-14 00:35:23,520 | INFO | app.ai_models.loader | loader.py:42 | Loading Symptom Analysis model...
+2026-02-14 00:35:23,523 | WARNING | app.ai_models.symptom_analysis | symptom_analysis.py:81 | Transformers library not available. Using keyword-based analysis only.
+2026-02-14 00:35:23,533 | INFO | app.ai_models.loader | loader.py:49 | ✓ Symptom Analysis using keyword fallback (transformers unavailable)
+2026-02-14 00:35:23,535 | INFO | app.ai_models.loader | loader.py:54 | Loading Fusion Service...
+2026-02-14 00:35:23,536 | INFO | app.ai_models.loader | loader.py:58 | ✓ Fusion Service loaded successfully
+2026-02-14 00:35:23,537 | INFO | app.ai_models.loader | loader.py:62 | 🎉 AI model loading process completed!
+2026-02-14 00:35:23,581 | INFO | app.main | main.py:46 | Backend started successfully!
+2026-02-14 00:35:58,164 | INFO | app.main | main.py:33 | Starting Aayur AI backend...
+2026-02-14 00:35:58,422 | INFO | app.ai_models.loader | loader.py:16 | Starting AI model loading process...
+2026-02-14 00:35:58,422 | INFO | app.ai_models.loader | loader.py:19 | Loading Tongue Analysis model...
+2026-02-14 00:35:58,422 | INFO | app.ai_models.loader | loader.py:23 | ✓ Tongue Analysis model loaded successfully
+2026-02-14 00:35:58,423 | INFO | app.ai_models.loader | loader.py:28 | Loading Pulse Analysis model...
+2026-02-14 00:35:58,423 | WARNING | app.services.pulse_service | pulse_service.py:28 | Pulse model not found at D:\AayurAI_Complete\backend\models/pulse/final_model.pth. Using random weights for dev.
+2026-02-14 00:35:58,437 | INFO | app.ai_models.loader | loader.py:35 | ✓ Pulse Analysis model loaded successfully
+2026-02-14 00:35:58,438 | INFO | app.ai_models.loader | loader.py:42 | Loading Symptom Analysis model...
+2026-02-14 00:35:58,438 | WARNING | app.ai_models.symptom_analysis | symptom_analysis.py:81 | Transformers library not available. Using keyword-based analysis only.
+2026-02-14 00:35:58,438 | INFO | app.ai_models.loader | loader.py:49 | ✓ Symptom Analysis using keyword fallback (transformers unavailable)
+2026-02-14 00:35:58,438 | INFO | app.ai_models.loader | loader.py:54 | Loading Fusion Service...
+2026-02-14 00:35:58,439 | INFO | app.ai_models.loader | loader.py:58 | ✓ Fusion Service loaded successfully
+2026-02-14 00:35:58,439 | INFO | app.ai_models.loader | loader.py:62 | 🎉 AI model loading process completed!
+2026-02-14 00:35:58,444 | INFO | app.main | main.py:46 | Backend started successfully!
+2026-02-14 00:35:58,500 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/voice/supported-languages completed in 0.0107s status=200
+2026-02-14 00:35:58,505 | INFO | app.core.middleware | middleware.py:18 | GET /health completed in 0.0152s status=200
+2026-02-14 00:35:58,505 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/voice/extract-symptoms-from-text completed in 0.0160s status=400
+2026-02-14 00:35:58,506 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/tongue/analyze completed in 0.0161s status=400
+2026-02-14 00:36:00,563 | INFO | app.core.middleware | middleware.py:18 | OPTIONS /health completed in 0.0009s status=405
+2026-02-14 00:36:44,461 | INFO | app.main | main.py:51 | Shutting down Aayur AI backend...
+2026-02-14 00:37:28,983 | INFO | app.main | main.py:33 | Starting Aayur AI backend...
+2026-02-14 00:37:29,343 | INFO | app.ai_models.loader | loader.py:16 | Starting AI model loading process...
+2026-02-14 00:37:29,344 | INFO | app.ai_models.loader | loader.py:19 | Loading Tongue Analysis model...
+2026-02-14 00:37:29,348 | INFO | app.ai_models.loader | loader.py:23 | ✓ Tongue Analysis model loaded successfully
+2026-02-14 00:37:29,349 | INFO | app.ai_models.loader | loader.py:28 | Loading Pulse Analysis model...
+2026-02-14 00:37:29,349 | WARNING | app.services.pulse_service | pulse_service.py:28 | Pulse model not found at D:\AayurAI_Complete\backend\models/pulse/final_model.pth. Using random weights for dev.
+2026-02-14 00:37:29,368 | INFO | app.ai_models.loader | loader.py:35 | ✓ Pulse Analysis model loaded successfully
+2026-02-14 00:37:29,369 | INFO | app.ai_models.loader | loader.py:42 | Loading Symptom Analysis model...
+2026-02-14 00:37:29,370 | WARNING | app.ai_models.symptom_analysis | symptom_analysis.py:81 | Transformers library not available. Using keyword-based analysis only.
+2026-02-14 00:37:29,372 | INFO | app.ai_models.loader | loader.py:49 | ✓ Symptom Analysis using keyword fallback (transformers unavailable)
+2026-02-14 00:37:29,372 | INFO | app.ai_models.loader | loader.py:54 | Loading Fusion Service...
+2026-02-14 00:37:29,373 | INFO | app.ai_models.loader | loader.py:58 | ✓ Fusion Service loaded successfully
+2026-02-14 00:37:29,374 | INFO | app.ai_models.loader | loader.py:62 | 🎉 AI model loading process completed!
+2026-02-14 00:37:29,393 | INFO | app.main | main.py:46 | Backend started successfully!
+2026-02-14 00:39:41,329 | INFO | app.core.middleware | middleware.py:18 | GET /health completed in 0.0038s status=200
+2026-02-14 00:39:43,490 | INFO | app.api.api_v1.endpoints.pulse | pulse.py:92 | Generated synthetic pulse: 75.0 BPM, 60s, 125Hz
+2026-02-14 00:39:43,500 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/pulse/generate-synthetic-pulse completed in 0.1067s status=200
+2026-02-14 00:39:45,597 | WARNING | app.services.pulse_service | pulse_service.py:28 | Pulse model not found at D:\AayurAI_Complete\backend\models/pulse/final_model.pth. Using random weights for dev.
+2026-02-14 00:39:46,085 | INFO | app.services.pulse_service | pulse_service.py:143 | Pulse Analysis Complete - ML: Pitta, Ayurvedic: Pitta
+2026-02-14 00:39:46,086 | WARNING | app.ai_models.symptom_analysis | symptom_analysis.py:81 | Transformers library not available. Using keyword-based analysis only.
+2026-02-14 00:39:46,087 | INFO | app.services.ai_service | ai_service.py:195 | Integrating analyses: ['pulse', 'symptoms']
+2026-02-14 00:39:46,088 | INFO | app.services.ai_service | ai_service.py:198 | Pulse probabilities: {'Vata': 0.009538245387375355, 'Pitta': 0.9872305989265442, 'Kapha': 1.2591965969477315e-05, 'Balanced': 0.0032185548916459084}
+2026-02-14 00:39:46,088 | INFO | app.services.ai_service | ai_service.py:202 | Symptom dosha_contributions: {'vata': 0.33, 'pitta': 0.33, 'kapha': 0.33}
+2026-02-14 00:39:46,089 | INFO | app.services.ai_service | ai_service.py:211 | Fusion result: {'dominant_dosha': 'Pitta', 'confidence': 0.7286601433905735, 'fused_scores': {'Vata': 0.13854467485027896, 'Pitta': 0.7286601433905735, 'Kapha': 0.1327951817591476}, 'sources': {'pulse': {'Vata': 0.009538245387375355, 'Pitta': 0.9872305989265442, 'Kapha': 1.2591965969477315e-05}, 'tongue': {'Vata': 0.0, 'Pitta': 0.0, 'Kapha': 0.0}, 'symptoms': {'Vata': 0.33, 'Pitta': 0.33, 'Kapha': 0.33}}, 'weights_used': {'tongue': 0.5, 'pulse': 0.3, 'symptoms': 0.2}}
+2026-02-14 00:39:46,091 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/consultations/complete completed in 0.5069s status=200
+2026-02-14 00:39:48,174 | INFO | app.core.middleware | middleware.py:18 | GET /api/v1/voice/supported-languages completed in 0.0004s status=200
+2026-02-14 00:39:50,237 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/tongue/analyze completed in 0.0099s status=422
+2026-02-14 00:39:52,304 | INFO | app.core.middleware | middleware.py:18 | POST /api/v1/voice/extract-symptoms-from-text completed in 0.0030s status=200
+2026-02-14 00:39:54,353 | INFO | app.core.middleware | middleware.py:18 | GET /health completed in 0.0010s status=200
+2026-02-14 00:39:56,402 | INFO | app.core.middleware | middleware.py:18 | OPTIONS /health completed in 0.0005s status=405

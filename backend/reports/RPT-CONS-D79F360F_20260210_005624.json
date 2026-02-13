@@ -1,0 +1,162 @@
+{
+  "report_id": "RPT-CONS-D79F360F",
+  "consultation_id": "CONS-D79F360F",
+  "generated_at": "2026-02-10T00:56:24.355953",
+  "locale": "en",
+  "patient_summary": {
+    "age": 35,
+    "gender": "female",
+    "consultation_date": "2026-02-10T00:56:15.806418",
+    "consultation_type": "Digital Ayurvedic Assessment",
+    "analyses_performed": [
+      "symptoms"
+    ]
+  },
+  "analysis_summary": {
+    "symptoms": {
+      "dominant_dosha": "vata",
+      "confidence": 1.0,
+      "likely_conditions": [
+        {
+          "name": "Headaches",
+          "confidence": 0.5,
+          "associated_dosha": "vata",
+          "keyword_matches": 2
+        },
+        {
+          "name": "Stress and Anxiety",
+          "confidence": 0.2,
+          "associated_dosha": "vata",
+          "keyword_matches": 1
+        },
+        {
+          "name": "Sleep Disorders",
+          "confidence": 0.2,
+          "associated_dosha": "vata",
+          "keyword_matches": 1
+        },
+        {
+          "name": "Joint and Muscle Pain",
+          "confidence": 0.2,
+          "associated_dosha": "vata",
+          "keyword_matches": 1
+        }
+      ],
+      "overall_severity": "moderate"
+    }
+  },
+  "diagnosis_summary": {
+    "primary_dosha": "vata",
+    "imbalance_level": "severe",
+    "constitution_type": "Vata",
+    "current_state": "Vata imbalance",
+    "dosha_percentages": {
+      "vata": 1.0,
+      "pitta": 0.0,
+      "kapha": 0.0
+    },
+    "explanation": "Your Vata dosha shows severe imbalance. Dosha distribution: Vata: 100.0%, Pitta: 0.0%, Kapha: 0.0%",
+    "confidence_score": 0.95
+  },
+  "recommendations": {
+    "dietary": {
+      "title": "Dietary Guidelines",
+      "recommendations": [
+        "Eat warm, cooked foods",
+        "Include healthy fats like ghee",
+        "Avoid cold, raw foods",
+        "Eat at regular times"
+      ],
+      "priority": "high"
+    },
+    "lifestyle": {
+      "title": "Lifestyle Modifications",
+      "recommendations": [
+        "Maintain regular sleep schedule",
+        "Practice gentle exercises",
+        "Keep warm",
+        "Establish routines",
+        "Practice stress management",
+        "Maintain sleep hygiene",
+        "Balance work and personal life"
+      ],
+      "priority": "high"
+    },
+    "herbal": {
+      "title": "Herbal Support",
+      "recommendations": [
+        "Ashwagandha for stress",
+        "Brahmi for mental clarity",
+        "Triphala for digestion",
+        "Ashwagandha for stress relief",
+        "Chamomile tea before bed"
+      ],
+      "priority": "medium"
+    },
+    "precautions": {
+      "title": "Important Precautions",
+      "recommendations": [
+        "Severe imbalance detected. Please consult with an Ayurvedic practitioner.",
+        "Follow recommendations carefully and monitor your symptoms."
+      ],
+      "priority": "critical"
+    }
+  },
+  "health_score": {
+    "score": 38.0,
+    "category": "Needs Attention",
+    "color": "orange",
+    "factors": {
+      "dosha_balance": "severe",
+      "analysis_confidence": 0.95,
+      "symptoms_severity": "moderate"
+    }
+  },
+  "risk_assessment": {
+    "identified_risks": [
+      {
+        "condition": "Anxiety disorders",
+        "risk_level": "high",
+        "related_dosha": "vata"
+      },
+      {
+        "condition": "Digestive issues",
+        "risk_level": "high",
+        "related_dosha": "vata"
+      },
+      {
+        "condition": "Joint problems",
+        "risk_level": "high",
+        "related_dosha": "vata"
+      },
+      {
+        "condition": "Headaches",
+        "risk_level": "moderate",
+        "confidence": 0.5
+      },
+      {
+        "condition": "Stress and Anxiety",
+        "risk_level": "low",
+        "confidence": 0.2
+      }
+    ],
+    "overall_risk_level": "high",
+    "prevention_focus": "Focus on balancing vata dosha"
+  },
+  "follow_up": {
+    "next_consultation": "In 1 weeks",
+    "description": "Weekly follow-up strongly recommended",
+    "monitoring_points": [
+      "Track symptom changes",
+      "Monitor dietary compliance",
+      "Assess lifestyle modifications",
+      "Evaluate herbal interventions"
+    ],
+    "red_flags": [
+      "Worsening of existing symptoms",
+      "New severe symptoms",
+      "No improvement after 4 weeks"
+    ]
+  },
+  "disclaimer": "report.disclaimer"
+}

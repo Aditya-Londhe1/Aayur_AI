@@ -1,0 +1,55 @@
+# Pulse Analysis Configuration
+
+model:
+  type: 'bilstm'
+  input_size: 1
+  hidden_size: 128
+  num_layers: 2
+  num_classes: 4
+  dropout: 0.3
+  use_attention: true
+  feature_dim: 15
+
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  num_epochs: 50
+  weight_decay: 0.0001
+  patience: 10
+  validation_split: 0.15
+  test_split: 0.15
+
+dataset:
+  segment_length: 1000  # 8 seconds at 125Hz
+  sampling_rate: 125
+  overlap: 0.5
+  normalize: true
+  augment: true
+  min_signal_length: 500
+
+features:
+  extract_time_domain: true
+  extract_frequency_domain: true
+  extract_nonlinear: true
+  extract_ayurvedic: true
+  sampling_rate: 125
+
+paths:
+  models_dir: './models/pulse'
+  data_dir: './data/bidmc'
+  results_dir: './results/pulse'
+  cache_dir: './cache/pulse'
+  logs_dir: './logs/pulse'
+
+analysis:
+  confidence_threshold: 0.6
+  quality_threshold: 0.3
+  min_peaks_required: 2
+  enable_cache: true
+  cache_max_age_days: 7
+
+ayurvedic:
+  enable_detailed_analysis: true
+  generate_recommendations: true
+  include_seasonal_advice: true
+  traditional_terminology: true
