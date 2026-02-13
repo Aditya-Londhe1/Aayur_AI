@@ -1,17 +1,17 @@
-# docker-compose.yml
+# Docker Compose for AayurAI Full-Stack Application
 version: '3.8'
 
 services:
   # PostgreSQL Database
   postgres:
     image: postgres:15-alpine
+    container_name: aayurai-postgres
     environment:
       POSTGRES_DB: aayurai
       POSTGRES_USER: aayurai
       POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme123}
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5432:5432"
     healthcheck:
@@ -21,149 +21,57 @@ services:
       retries: 5
     networks:
       - aayurai-network
+    restart: unless-stopped
 
-  # Redis for caching and rate limiting
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "6379:6379"
-    command: redis-server --appendonly yes
-    volumes:
-      - redis_data:/data
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - aayurai-network
-
-  # Backend API
-  backend:
+  # AayurAI Application (Backend + Frontend)
+  app:
     build:
-      context: ./backend
+      context: .
       dockerfile: Dockerfile
+    container_name: aayurai-app
     environment:
+      # Database
       - DATABASE_URL=postgresql://aayurai:${DB_PASSWORD:-changeme123}@postgres:5432/aayurai
-      - REDIS_URL=redis://redis:6379/0
+      
+      # API Keys
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      
+      # Security
       - SECRET_KEY=${SECRET_KEY:-your-secret-key-change-in-production}
-      - DEBUG=${DEBUG:-false}
-      - CORS_ORIGINS=http://localhost:3000,http://frontend:3000
+      - ALGORITHM=HS256
+      
+      # Environment
+      - ENVIRONMENT=production
+      - PORT=8000
+      
+      # Optional: Email
+      - SMTP_HOST=${SMTP_HOST:-}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_USER=${SMTP_USER:-}
+      - SMTP_PASSWORD=${SMTP_PASSWORD:-}
+      - FROM_EMAIL=${FROM_EMAIL:-}
     volumes:
-      - ./uploads:/app/uploads
-      - ./ml_models:/app/ml_models
-      - ./logs:/app/logs
+      - ./uploads:/app/backend/uploads
+      - ./models:/app/models
+      - ./logs:/app/backend/logs
     ports:
       - "8000:8000"
     depends_on:
       postgres:
         condition: service_healthy
-      redis:
-        condition: service_healthy
     networks:
       - aayurai-network
     restart: unless-stopped
-
-  # Frontend React App
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-      args:
-        - REACT_APP_API_URL=http://localhost:8000/api/v1
-    environment:
-      - REACT_APP_API_URL=http://backend:8000/api/v1
-      - REACT_APP_ENV=production
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
-    networks:
-      - aayurai-network
-    restart: unless-stopped
-
-  # Nginx Reverse Proxy
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/ssl:/etc/nginx/ssl
-      - ./frontend/build:/usr/share/nginx/html
-      - ./uploads:/usr/share/nginx/uploads
-    depends_on:
-      - backend
-      - frontend
-    networks:
-      - aayurai-network
-    restart: unless-stopped
-
-  # Celery Worker for background tasks
-  celery-worker:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    command: celery -A app.core.celery_app worker --loglevel=info
-    environment:
-      - DATABASE_URL=postgresql://aayurai:${DB_PASSWORD:-changeme123}@postgres:5432/aayurai
-      - REDIS_URL=redis://redis:6379/0
-      - CELERY_BROKER_URL=redis://redis:6379/0
-      - CELERY_RESULT_BACKEND=redis://redis:6379/0
-    volumes:
-      - ./uploads:/app/uploads
-      - ./ml_models:/app/ml_models
-      - ./logs:/app/logs
-    depends_on:
-      - redis
-      - postgres
-    networks:
-      - aayurai-network
-    restart: unless-stopped
-
-  # Celery Beat for scheduled tasks
-  celery-beat:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    command: celery -A app.core.celery_app beat --loglevel=info
-    environment:
-      - DATABASE_URL=postgresql://aayurai:${DB_PASSWORD:-changeme123}@postgres:5432/aayurai
-      - REDIS_URL=redis://redis:6379/0
-      - CELERY_BROKER_URL=redis://redis:6379/0
-      - CELERY_RESULT_BACKEND=redis://redis:6379/0
-    volumes:
-      - ./uploads:/app/uploads
-    depends_on:
-      - redis
-      - postgres
-    networks:
-      - aayurai-network
-    restart: unless-stopped
-
-  # Database backup service
-  backup:
-    image: prodrigestivill/postgres-backup-local
-    environment:
-      - POSTGRES_HOST=postgres
-      - POSTGRES_DB=aayurai
-      - POSTGRES_USER=aayurai
-      - POSTGRES_PASSWORD=${DB_PASSWORD:-changeme123}
-      - SCHEDULE=@daily
-      - BACKUP_KEEP_DAYS=7
-      - BACKUP_KEEP_WEEKS=4
-      - BACKUP_KEEP_MONTHS=6
-    volumes:
-      - ./backups:/backups
-    depends_on:
-      - postgres
-    networks:
-      - aayurai-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
 volumes:
   postgres_data:
-  redis_data:
+    driver: local
 
 networks:
   aayurai-network:
