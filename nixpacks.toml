@@ -3,9 +3,9 @@ nixPkgs = ["python311", "nodejs-18_x"]
 
 [phases.install]
 cmds = [
-    "python3 -m ensurepip",
-    "cd backend && python3 -m pip install --upgrade pip",
-    "cd backend && python3 -m pip install -r requirements.txt",
+    "python3 -m venv /opt/venv",
+    "/opt/venv/bin/pip install --upgrade pip",
+    "cd backend && /opt/venv/bin/pip install -r requirements.txt",
     "cd frontend && npm install"
 ]
 
@@ -16,4 +16,4 @@ cmds = [
 ]
 
 [start]
-cmd = "cd backend && python3 -m uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+cmd = "cd backend && /opt/venv/bin/uvicorn app.main:app --host 0.0.0.0 --port $PORT"
