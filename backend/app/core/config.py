@@ -11,7 +11,11 @@ class Settings(BaseSettings):
     
     # Application
     BASE_DIR: str = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    PROJECT_NAME: str = "AayurAI"
     APP_NAME: str = "Aayur AI"
+    VERSION: str = "1.0.0"
+    API_V1_STR: str = "/api/v1"
+    ENVIRONMENT: str = os.getenv("ENVIRONMENT", "development")
     DEBUG: bool = os.getenv("DEBUG", "False").lower() == "true"
     SECRET_KEY: str = os.getenv("SECRET_KEY", "your-secret-key-here-change-in-production")
     
