@@ -6,6 +6,23 @@ from starlette.responses import Response
 
 logger = logging.getLogger(__name__)
 
+
+async def log_requests(request: Request, call_next):
+    """
+    Middleware function to log incoming requests
+    """
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = time.time() - start_time
+    
+    logger.info(
+        f"{request.method} {request.url.path} "
+        f"completed in {process_time:.4f}s "
+        f"status={response.status_code}"
+    )
+    
+    return response
+
 class RequestLoggingMiddleware(BaseHTTPMiddleware):
     """
     Logs incoming requests and response time
