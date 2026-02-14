@@ -1,0 +1,39 @@
+# Railway Ignore File
+# Tell Railway to ignore Dockerfile and use Nixpacks instead
+
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Test files
+test_*.py
+*_test.py
+final_deployment_test.py
+verify_*.py
+
+# Documentation
+*.md
+!README.md
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+
+# Logs
+*.log
+logs/
+
+# Cache
+__pycache__
+*.pyc
+.pytest_cache
+
+# Environment (Railway sets these)
+.env
+.env.local
+backend/.env
+frontend/.env
