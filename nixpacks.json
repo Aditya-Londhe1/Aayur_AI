@@ -1,11 +1,11 @@
 {
   "phases": {
     "setup": {
-      "nixPkgs": ["python311", "nodejs-18_x"]
+      "nixPkgs": ["python311", "nodejs-18_x", "python311Packages.pip"]
     },
     "install": {
       "cmds": [
-        "cd backend && pip install -r requirements.txt",
+        "cd backend && python -m pip install -r requirements.txt",
         "cd frontend && npm install"
       ]
     },
@@ -17,6 +17,6 @@
     }
   },
   "start": {
-    "cmd": "cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    "cmd": "cd backend && python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT"
   }
 }
